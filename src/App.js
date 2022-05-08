@@ -1,15 +1,17 @@
 import "normalize.css";
+import "antd/dist/antd.css";
 import React from "react";
 import NavBar from "./components/NavBar";
 import Organization from "./components/Organization";
-import SearchBar from "./components/SearchBar";
+import TableDivision from "./components/Table";
+import { Divider } from "antd";
 
 function App() {
   return (
     <div className="App">
       <NavBar />
       <Organization />
-      <SearchBar></SearchBar>
+      <TableDivision />
     </div>
   );
 }

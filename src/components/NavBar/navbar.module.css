@@ -1,15 +1,19 @@
 .container{
     display: flex;
     justify-content: space-between;
-    padding-left:10px;
-    padding-right:10px;
+    padding-left:15px;
+    padding-right:15px;
     padding-top:20px;
     padding-bottom:20px;
     background: linear-gradient(270deg, #56A7F2 27.97%, rgba(255, 255, 255, 0) 83.44%), #2E52F8;
+    color: #fff;
 }
 
 .box{
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    gap: 10px;   
+}
+.box > div{
+    padding: 10px;
 }
