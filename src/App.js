@@ -4,7 +4,6 @@ import React from "react";
 import NavBar from "./components/NavBar";
 import Organization from "./components/Organization";
 import TableDivision from "./components/Table";
-import { Divider } from "antd";
 
 function App() {
   return (

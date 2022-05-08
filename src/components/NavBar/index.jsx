@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./navbar.module.css";
+import mandu from "../../assets/mandu.png";
+import mandu2 from "../../assets/mandu2.png";
 import { FaBell, FaQuestionCircle, FaToolbox } from "react-icons/fa";
 
 export const Navbar = () => {
@@ -7,12 +9,14 @@ export const Navbar = () => {
     <div className={styles.container}>
       <div className={styles.box}>
         <div>
-          <span style={{ fontWeight: "bold" }}> Mandu </span>
+          <span style={{ fontWeight: "bold" }}>
+            <img src={mandu} alt="mandu2" />
+          </span>
         </div>
         <div>Dashboard</div>
         <div>Organization</div>
-        <div>Modelos</div>
-        <div>Seguimiento</div>
+        <div>Modelos ▾</div>
+        <div>Seguimiento ▾</div>
       </div>
       <div className={styles.box}>
         <div>
@@ -26,7 +30,9 @@ export const Navbar = () => {
         </div>
         <div> image</div>
         <div>Adminsitrador</div>
-        <div> Mandu</div>
+        <div className={styles.mandu}>
+          <img src={mandu2} alt="mandu" />
+        </div>
       </div>
     </div>
   );

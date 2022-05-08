@@ -1,8 +1,9 @@
 .container{
     display: flex;
     justify-content: space-between;
-    padding: 25px 25px 40px 40px;
-    
+    padding-top:15px;
+    padding-left: 40px;
+    padding-right: 40px;
     
 }
 .box_left{
@@ -11,7 +12,12 @@
 }
 .box_right{
     display: flex;
+    align-items: center;
+    justify-content: center;
 
+}
+.box_rigth > div{
+    padding: 20px;
 }
 .box{
     display: flex;
@@ -20,4 +26,5 @@
 .box > div{
     padding-right: 10px;
     padding-bottom: 10px;
+    margin-top: 10px;
 }
