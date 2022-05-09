@@ -63,13 +63,6 @@ export default function TableDivision({
       key: "Colaboradores",
       sorter: (a, b) => a.Colaboradores - b.Colaboradores,
       sortDirections: ["descend", "ascend"],
-      filters: [
-        { text: "10", value: 10 },
-        { text: "2", value: 2 },
-      ],
-      filterMode: "tree",
-      filterSearch: true,
-      onFilter: (value, record) => record.Colaboradores.startsWith(value),
     },
     {
       title: "Nivel",

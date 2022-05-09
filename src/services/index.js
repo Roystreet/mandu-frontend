@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:8000/api/divisions";
+const url = "https://tranquil-mountain-45124.herokuapp.com/api/divisions";
 
 export const getDivisions = async () => {
   try {
