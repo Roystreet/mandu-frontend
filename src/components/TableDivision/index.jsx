@@ -2,13 +2,13 @@ import React from "react";
 import { Table } from "antd";
 import styles from "./tabledivision.module.css";
 import SearchBar from "../SearchBar";
+import { FaPlusSquare } from "react-icons/fa";
 
 export default function TableDivision({
   data,
   isLoading,
   onChangeSearch,
   onChangeSelect,
-  countColaborators,
 }) {
   const filterDivision = data.map((data) => {
     return {
@@ -82,6 +82,21 @@ export default function TableDivision({
       key: "Subdivisiones",
       sorter: (a, b) => a.Subdivisiones - b.Subdivisiones,
       sortDirections: ["descend", "ascend"],
+      render: (text) => {
+        return (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              alignContent: "center",
+              justifyContent: "space-around",
+            }}
+          >
+            <div>{text}</div>
+            <FaPlusSquare color="#5ccb5f" size={20} />
+          </div>
+        );
+      },
     },
     {
       title: "Embajadores",
