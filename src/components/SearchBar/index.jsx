@@ -4,7 +4,7 @@ import { Select, Input } from "antd";
 const { Option } = Select;
 const { Search } = Input;
 
-const SearchBar = () => {
+const SearchBar = ({ onChangeSearch, onChangeSelect }) => {
   return (
     <div className={styles.container}>
       <div className={styles.container}>
@@ -20,15 +20,19 @@ const SearchBar = () => {
         <div>Arbol</div>
       </div>
       <div>
-        <Select placeholder="Columnas" style={{ width: 120 }}>
+        <Select
+          placeholder="Columnas"
+          style={{ width: 120 }}
+          onChange={onChangeSelect}
+        >
           <Option value="Division">Division</Option>
-          <Option value="Division Superior">Division Superior</Option>
+          <Option value="DivisionSuperior">Division Superior</Option>
           <Option value="Colaboradores">Colaboradores</Option>
           <Option value="Nivel">Nivel</Option>
           <Option value="Subdivisiones">Subdivisiones</Option>
           <Option value="Embajadores">Embajadores</Option>
         </Select>
-        <Search style={{ width: 200 }}></Search>
+        <Search style={{ width: 200 }} onChange={onChangeSearch}></Search>
       </div>
     </div>
   );

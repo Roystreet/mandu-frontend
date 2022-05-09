@@ -10,11 +10,28 @@ function App() {
   const [divisions, setDivisions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [filter, setFilter] = useState([]);
-  const [search, setSearch] = useState("");
+  const [select, setSelect] = useState("Division");
+
+  const onChangeSearch = (e) => {
+    console.log(e.target.value);
+    if (e.target.value.length > 0) {
+      const search = divisions.filter((data) =>
+        data[select].toLowerCase().startsWith(e.target.value.toLowerCase())
+      );
+      setFilter(search);
+    } else {
+      setFilter(divisions);
+    }
+  };
+
+  const onChangeSelect = (value) => {
+    setSelect(value);
+  };
 
   useEffect(() => {
     getDivisions().then((data) => {
       setDivisions(data);
+      setFilter(data);
       setIsLoading(false);
     });
   }, []);
@@ -24,9 +41,11 @@ function App() {
       <NavBar />
       <Organization />
       <TableDivision
-        data={divisions}
+        data={filter}
         isLoading={isLoading}
         setIsLoading={setIsLoading}
+        onChangeSearch={onChangeSearch}
+        onChangeSelect={onChangeSelect}
       />
     </div>
   );

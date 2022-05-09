@@ -3,7 +3,37 @@ import { Table } from "antd";
 import styles from "./tabledivision.module.css";
 import SearchBar from "../SearchBar";
 
-export default function TableDivision({ data, isLoading }) {
+export default function TableDivision({
+  data,
+  isLoading,
+  onChangeSearch,
+  onChangeSelect,
+}) {
+  const filterDivision = data.map((data) => {
+    return {
+      text: data.Division,
+      value: data.Division,
+    };
+  });
+  const filterPivoteDivisionSuperior = new Set(
+    data.map((data) => data.DivisionSuperior)
+  );
+  const filterDivisionSuperior = [...filterPivoteDivisionSuperior].map(
+    (data) => {
+      return {
+        text: data,
+        value: data,
+      };
+    }
+  );
+  const filterPivoteLevel = new Set(data.map((data) => data.Nivel));
+  const filterLevel = [...filterPivoteLevel].map((data) => {
+    return {
+      text: data,
+      value: data,
+    };
+  });
+
   const columns = [
     {
       title: "Division",
@@ -11,7 +41,7 @@ export default function TableDivision({ data, isLoading }) {
       key: "Division",
       sorter: (a, b) => a.Division.length - b.Division.length,
       sortDirections: ["descend", "ascend"],
-      filters: [{ text: "Division 1", value: "Division 1" }],
+      filters: filterDivision,
       filterMode: "tree",
       filterSearch: true,
       onFilter: (value, record) => record.Division.startsWith(value),
@@ -22,7 +52,7 @@ export default function TableDivision({ data, isLoading }) {
       key: "DivisionSuperior",
       sorter: (a, b) => a.Division.length - b.Division.length,
       sortDirections: ["descend", "ascend"],
-      filters: [{ text: "Division 1", value: "Division 1" }],
+      filters: filterDivisionSuperior,
       filterMode: "tree",
       filterSearch: true,
       onFilter: (value, record) => record.DivisionSuperior.startsWith(value),
@@ -47,10 +77,7 @@ export default function TableDivision({ data, isLoading }) {
       key: "Nivel",
       sorter: (a, b) => a.Nivel - b.Nivel,
       sortDirections: ["descend", "ascend"],
-      filters: [
-        { text: "10", value: "10" },
-        { text: "2", value: 2 },
-      ],
+      filters: filterLevel,
       filterMode: "tree",
       filterSearch: true,
       onFilter: (value, record) => record.Nivel.includes(value),
@@ -59,7 +86,7 @@ export default function TableDivision({ data, isLoading }) {
       title: "Subdivisiones",
       dataIndex: "Subdivisiones",
       key: "Subdivisiones",
-      sorter: (a, b) => b.Subdivisiones - a.Subdivisiones,
+      sorter: (a, b) => a.Subdivisiones - b.Subdivisiones,
       sortDirections: ["descend", "ascend"],
     },
     {
@@ -69,157 +96,14 @@ export default function TableDivision({ data, isLoading }) {
     },
   ];
 
-  const dataa = [
-    {
-      key: "1",
-      Division: "Zivision 1",
-      DivisionSuperior: "Division 1",
-      Colaboradores: 10,
-      Nivel: "2",
-      Subdivisiones: 7,
-      Embajadores: "el pepe",
-    },
-    {
-      key: "2",
-      Division: "Division 1",
-      DivisionSuperior: "Division 1",
-      Colaboradores: "10",
-      Nivel: "2",
-      Subdivisiones: 2,
-      Embajadores: "el pepe",
-    },
-    {
-      key: "3",
-      Division: "Division 1",
-      DivisionSuperior: "Division 1",
-      Colaboradores: 10,
-      Nivel: "2",
-      Subdivisiones: 2,
-      Embajadores: "el pepe",
-    },
-    {
-      key: "4",
-      Division: "Division 1",
-      DivisionSuperior: "Division 1",
-      Colaboradores: 10,
-      Nivel: "2",
-      Subdivisiones: 6,
-      Embajadores: "el pepe",
-    },
-    {
-      key: "5",
-      Division: "Division 1",
-      DivisionSuperior: "Division 1",
-      Colaboradores: 10,
-      Nivel: "2",
-      Subdivisiones: 2,
-      Embajadores: "el pepe",
-    },
-    {
-      key: "6",
-      Division: "Division 1",
-      DivisionSuperior: "Division 1",
-      Colaboradores: 10,
-      Nivel: "2",
-      Subdivisiones: 2,
-      Embajadores: "el pepe",
-    },
-    {
-      key: "7",
-      Division: "Division 1",
-      DivisionSuperior: "Division 1",
-      Colaboradores: 10,
-      Nivel: "2",
-      Subdivisiones: 2,
-      Embajadores: "el pepe",
-    },
-    {
-      key: "8",
-      Division: "Division 1",
-      DivisionSuperior: "Division 1",
-      Colaboradores: 10,
-      Nivel: "2",
-      Subdivisiones: 10,
-      Embajadores: "el pepe",
-    },
-    {
-      key: "9",
-      Division: "Division 1",
-      DivisionSuperior: "Division 1",
-      Colaboradores: 10,
-      Nivel: "2",
-      Subdivisiones: 10,
-      Embajadores: "el pepe",
-    },
-    {
-      key: "10",
-      Division: "Division 1",
-      DivisionSuperior: "Division 1",
-      Colaboradores: 10,
-      Nivel: "2",
-      Subdivisiones: 10,
-      Embajadores: "el pepe",
-    },
-    {
-      key: "11",
-      Division: "Division 1",
-      DivisionSuperior: "Division 1",
-      Colaboradores: 10,
-      Nivel: "2",
-      Subdivisiones: 10,
-      Embajadores: "el pepe",
-    },
-    {
-      key: "12",
-      Division: "Division 1",
-      DivisionSuperior: "Division 1",
-      Colaboradores: 10,
-      Nivel: "2",
-      Subdivisiones: 10,
-      Embajadores: "el pepe",
-    },
-    {
-      key: "13",
-      Division: "Division 1",
-      DivisionSuperior: "Division 1",
-      Colaboradores: 10,
-      Nivel: "2",
-      Subdivisiones: 10,
-      Embajadores: "el pepe",
-    },
-    {
-      key: "14",
-      Division: "Division 1",
-      DivisionSuperior: "Division 1",
-      Colaboradores: 10,
-      Nivel: "2",
-      Subdivisiones: 10,
-      Embajadores: "el pepe",
-    },
-    {
-      key: "15",
-      Division: "Division 1",
-      DivisionSuperior: "Division 1",
-      Colaboradores: 10,
-      Nivel: "2",
-      Subdivisiones: 10,
-      Embajadores: "el pepe",
-    },
-    {
-      key: "16",
-      Division: "Division 1",
-      DivisionSuperior: "Division 1",
-      Colaboradores: 10,
-      Nivel: "10",
-      Subdivisiones: 10,
-      Embajadores: "el pepe",
-    },
-  ];
   const datos = data;
 
   return (
     <div className={styles.container}>
-      <SearchBar />
+      <SearchBar
+        onChangeSearch={onChangeSearch}
+        onChangeSelect={onChangeSelect}
+      />
       <Table
         rowSelection="checkbox"
         columns={columns}
