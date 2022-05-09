@@ -3,7 +3,7 @@ import { Table } from "antd";
 import styles from "./tabledivision.module.css";
 import SearchBar from "../SearchBar";
 
-export default function TableDivision(props) {
+export default function TableDivision({ data, isLoading }) {
   const columns = [
     {
       title: "Division",
@@ -69,7 +69,7 @@ export default function TableDivision(props) {
     },
   ];
 
-  const data = [
+  const dataa = [
     {
       key: "1",
       Division: "Zivision 1",
@@ -215,6 +215,7 @@ export default function TableDivision(props) {
       Embajadores: "el pepe",
     },
   ];
+  const datos = data;
 
   return (
     <div className={styles.container}>
@@ -222,9 +223,10 @@ export default function TableDivision(props) {
       <Table
         rowSelection="checkbox"
         columns={columns}
-        dataSource={data}
+        dataSource={datos}
         pagination={{ defaultPageSize: 10, showSizeChanger: true }}
         bordered
+        loading={isLoading}
       />
     </div>
   );
