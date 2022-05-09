@@ -13,7 +13,6 @@ function App() {
   const [select, setSelect] = useState("Division");
 
   const onChangeSearch = (e) => {
-    console.log(e.target.value);
     if (e.target.value.length > 0) {
       const search = divisions.filter((data) =>
         data[select].toLowerCase().startsWith(e.target.value.toLowerCase())

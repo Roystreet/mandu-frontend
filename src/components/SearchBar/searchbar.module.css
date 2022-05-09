@@ -1,4 +1,30 @@
 .container{
     display: flex;
     justify-content: space-between;
+    padding-bottom: 15px;
+    align-items: center;
+}
+.box_active{
+    border: 1px solid  #378FEE;
+    color: #378FEE;
+    background: #EEF3FA;
+    padding:10px;
+    border-radius: 5px 0px 0px 5px;
+    
+    
+}
+.box_disabled{
+    border: 1px solid #A6A6A6;
+    color: #A6A6A6;
+    background: #EEF3FA;
+    padding:10px;
+    border-radius: 0px 5px 5px 0px;
+    padding: 10px;
+}
+.container_search{
+    display: flex;
+    justify-content: space-between;
+}
+.box{
+    margin-left: 10px;
 }

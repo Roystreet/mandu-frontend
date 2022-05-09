@@ -20,15 +20,17 @@ export const Navbar = () => {
       </div>
       <div className={styles.box}>
         <div>
-          <FaToolbox size={25} color="white" />
+          <FaToolbox size={22} color="white" />
         </div>
         <div>
-          <FaQuestionCircle size={25} color="white" />
+          <FaQuestionCircle size={22} color="white" />
         </div>
         <div>
-          <FaBell size={25} color="white" />
+          <FaBell size={22} color="white" />
         </div>
-        <div> image</div>
+        <div className={styles.img_circle}>
+          <div>A</div>
+        </div>
         <div>Adminsitrador</div>
         <div className={styles.mandu}>
           <img src={mandu2} alt="mandu" />

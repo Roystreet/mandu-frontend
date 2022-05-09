@@ -8,18 +8,10 @@ const SearchBar = ({ onChangeSearch, onChangeSelect }) => {
   return (
     <div className={styles.container}>
       <div className={styles.container}>
-        <div
-          style={{
-            border: "1px solid  #378FEE",
-            color: "#378FEE",
-            background: "#EEF3FA",
-          }}
-        >
-          Listado
-        </div>
-        <div>Arbol</div>
+        <div className={styles.box_active}>Listado</div>
+        <div className={styles.box_disabled}>Arbol</div>
       </div>
-      <div>
+      <div className={styles.container_search}>
         <Select
           placeholder="Columnas"
           style={{ width: 120 }}
@@ -32,7 +24,11 @@ const SearchBar = ({ onChangeSearch, onChangeSelect }) => {
           <Option value="Subdivisiones">Subdivisiones</Option>
           <Option value="Embajadores">Embajadores</Option>
         </Select>
-        <Search style={{ width: 200 }} onChange={onChangeSearch}></Search>
+        <Search
+          style={{ width: 300 }}
+          onChange={onChangeSearch}
+          className={styles.box}
+        ></Search>
       </div>
     </div>
   );
