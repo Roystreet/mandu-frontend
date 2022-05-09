@@ -8,6 +8,7 @@ export default function TableDivision({
   isLoading,
   onChangeSearch,
   onChangeSelect,
+  countColaborators,
 }) {
   const filterDivision = data.map((data) => {
     return {
@@ -101,7 +102,10 @@ export default function TableDivision({
         rowSelection="checkbox"
         columns={columns}
         dataSource={datos}
-        pagination={{ defaultPageSize: 10, showSizeChanger: true }}
+        pagination={{
+          defaultPageSize: 10,
+          showSizeChanger: true,
+        }}
         bordered
         loading={isLoading}
       />
